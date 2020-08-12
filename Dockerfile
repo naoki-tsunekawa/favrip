@@ -5,7 +5,8 @@ RUN apt-get update -qq && apt-get install -y \
     node.js \
     postgresql-client \
     yarn \
-		vim
+	vim \
+    imagemagick
 # Rspecで使うchormedriverをインストール
 RUN CHROME_DRIVER_VERSION=`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE` && \
     wget -N http://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip -P ~/ && \
