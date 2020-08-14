@@ -27,7 +27,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   # アップロードするサイズの制限
-  process resize_to_limit => [700, 700]
+  process resize_to_fit: [700, 700]
 
   # サムネイルサイズの設定
   version :thumb do

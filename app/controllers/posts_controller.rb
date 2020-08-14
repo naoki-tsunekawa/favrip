@@ -10,7 +10,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    post = Post.new(post_params)
+    post.save!
+    redirect_to posts_url, notice: "「#{post.title}を投稿しました。」"
   end
 
   def edit
@@ -19,7 +21,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image)
+    params.require(:post).permit(:title, :description , :image, :address)
   end
 
 
