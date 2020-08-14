@@ -1,0 +1,42 @@
+    <%# ナビゲーションバー %>
+	<div class="container">
+
+		<div class="nav-header">
+			<div class="text">
+        <i class="fas fa-map-marker-alt app-name">Favrip</i>
+			</div>
+		</div>
+
+		<div class="item">
+      <%= link_to posts_path do %>
+            <div class="text">
+              <i class="fas fa-home">ホーム</i>
+            </div>
+      <%end%>
+    </div>
+
+    <div class="item">
+			<%= link_to new_post_path do %>
+				<div class="text">
+					<i class="fas fa-plus">新規作成</i>
+				</div>
+			<%end%>
+		</div>
+
+		<div class="item">
+			<a href="#">
+				<div class="text">
+					<i class="fas fa-user">マイページ</i>
+				</div>
+			</a>
+		</div>
+
+		<div class="item">
+			<a href="#">
+				<div class="text">
+					<i class="fas fa-sign-out-alt">ログアウト</i>
+				</div>
+			</a>
+		</div>
+
+	</div>

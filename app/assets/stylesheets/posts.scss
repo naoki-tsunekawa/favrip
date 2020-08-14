@@ -1,9 +1,14 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html {
+  font-size: 62.5%;
+}
+
 * {
 	margin: 0;
-	padding: 0;
+  padding: 0;
+  font-size: 1.5rem;
 }
 
 .container {
@@ -13,76 +18,108 @@
 	padding: 5px;
 }
 
-.nav-header {
-	margin: 5px auto 5px 20px;
-}
-
-.item {
-	width: 100px;
-	height: 40px;
-	margin: 5px;
-
-	&:hover {
-		background: rgb(185, 184, 184);
-		border-radius: 3px;
-	}
-}
-
-.text	{
-	line-height: 40px;
-	text-align: center;
-	font-size: bold;
-	color: black;
-}
-
-a {
-	text-decoration: none;
-}
-
-.app-name {
-	font-size: 30px;
-}
-
 //入力フォームのスタイル
-.form-wrapper {
-  width: 40%;
-  margin-left: 30%;
-  padding-top: 10%;
 
-  .form-control {
-    width: 100%;
-    background: transparent;
-    border-bottom: solid 1px #74b9ff;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    font-size: 1rem;
-    padding: 0.5em 0.4em;
-    transition: all 0.4s;
-    color: #BDBDBD;;
-    margin: 0.7rem 0;
-  }
-}
-
-// ボタンのスタイル
-.btn-wrapper {
-  text-align: center;
-  margin-top: 2.5rem;
-}
-
-.btn-sign-up {
-  background: transparent;
-  width: 50%;
-  // margin-top: 2.5rem;
+.form-title {
+  color: #34495e;
+  font-weight: bold;
+  font-size: 3rem;
+  border-left: solid 6px #7db4e6;
   margin: 0 auto;
-  font-size: 1rem;
-  border: solid 1px #74b9ff;
-  padding: 1em 0;
-  color: #636e72;
-  transition: all 0.6s;
-
-  &:hover {
-    cursor:pointer;
-    background: #74b9ff;
-  }
+  margin-bottom: 30px;
+  padding-left: 20px;
 }
+
+.form-wrapper {
+  background-color: #ecf0f1;
+  width: 40%;
+  margin: 50px auto 0;
+  margin-top: 30px;
+  padding: 3% 5%;
+}
+
+.form-group {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.form-text{
+  color:#34495e;
+}
+
+.form-control{
+  display: block;
+  width: 90%;
+  // max-width: 90%;
+  height: calc(2.25rem + 2px);
+  border:0;
+  padding:10px;
+  font-size:1.4rem;
+  font-family:Arial, sans-serif;
+  color:#34495e;
+  border:solid 1px #ccc;
+  margin:0 0 20px;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+}
+
+// textarea_style
+.form-text-area{
+  width: 90%;
+  height: 200px;
+}
+
+// btn style
+.btn {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #7db4e6;
+  border: solid 2px #7db4e6;
+  border-radius: 3px;
+  transition: .4s;
+}
+
+.btn:hover {
+  background: #7db4e6;
+  color: white;
+}
+
+.btn-control {
+  margin-top: 30px;
+}
+
+// googlemap style
+#map {
+  width: 90%;
+  height: 400px;
+}
+
+// map form
+// .form-map {
+//   display: block;
+
+//   &[data-map-status="active"] {
+//     display: block;
+//   }
+// }
+
+
+// modal
+.modal {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+  }
+
+  .modal-content{
+  background-color: white;
+  width: 500px;
+  margin: 10% auto;
+  }
