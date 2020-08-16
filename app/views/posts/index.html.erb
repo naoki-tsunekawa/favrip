@@ -1,37 +1,17 @@
-<h1>投稿一覧画面</h1>
 
-<div class="md-3">
-	<table class="table">
-		<thead>
-			<tr>
-				<th>画像</th>
-				<th>タイトル</th>
-				<th>投稿日時</th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @posts.each do |post| %>
-				<tr>
-					<td><%= post.title %></td>
-					<td><%= post.created_at %></td>
-				</tr>
-			<% end %>
-		</tbody>
-	</table>
-</div>
-
-<div class="list-container">
+<div class="card card-skin">
 	<% @posts.each do |post| %>
-		<div class="post-item">
-			<div class="item-image-container">
-				<img class="item-image" src="<%= "#{post.image}" %>">
-			</div>
-			<div class="item-title-container">
+	<div class="item-wrapper">
+		<img class="card__imgframe" src="<%= "#{post.image}" %>">
+		<div class="card__textbox">
+			<div class="card__titletext">
 				<%= post.title %>
 			</div>
-			<div class="item-description-container">
+			<div class="card__overviewtext">
 				<%= post.description %>
 			</div>
 		</div>
+	</div>
 	<% end %>
 </div>
+
