@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   def index
+    # 全ての投稿を取得　※一時的に
+    @posts = Post.all
   end
 
   def show
