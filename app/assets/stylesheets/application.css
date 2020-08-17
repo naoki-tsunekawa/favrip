@@ -16,5 +16,5 @@
 
 @import "layouts/navbar";
 @import "posts/index";
-
+@import "posts/show";
 

@@ -1,17 +1,19 @@
 
 <div class="card card-skin">
 	<% @posts.each do |post| %>
-	<div class="item-wrapper">
-		<img class="card__imgframe" src="<%= "#{post.image}" %>">
-		<div class="card__textbox">
-			<div class="card__titletext">
-				<%= post.title %>
+		<div class="item-wrapper">
+			<img class="card__imgframe" src="<%= "#{post.image}" %>">
+			<div class="card__textbox">
+				<div class="card__titletext">
+					<%= post.title %>
+				</div>
+				<div class="card__overviewtext">
+					<%= post.description %>
+				</div>
 			</div>
-			<div class="card__overviewtext">
-				<%= post.description %>
-			</div>
+			<%= link_to '詳細', post_path(post), class: ''%>
+			<%= link_to '削除', post, method: :delete, data: { confirm: "タスク「#{post.title}」を削除します。よろしいですか？"}, class: '' %>
 		</div>
-	</div>
 	<% end %>
 </div>
 
