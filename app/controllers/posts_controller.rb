@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -12,12 +13,26 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(post_params)
-    post.save!
-    redirect_to posts_url, notice: "「#{post.title}を投稿しました。」"
+    @post = Post.new(post_params)
+
+    if @post.save
+      # 保存成功
+      redirect_to posts_url, notice: "「#{post.title}を投稿しました。」"
+    else
+      # 保存失敗
+      # render :newで登録用のフォームに再び表示する。
+      render :new
+    end
+
   end
 
   def edit
+  end
+
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy
+    redirect_to posts_url, notice: "タスク「#{post.title}」を削除しました。"
   end
 
   private
@@ -25,6 +40,4 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :description , :image, :address)
   end
-
-
 end

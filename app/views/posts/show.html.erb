@@ -1,2 +1,25 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+
+<div class="card card-skin">
+	<div class="item-wrapper">
+		<img class="card__imgframe" src="<%= "#{@post.image}" %>">
+		<div class="card__textbox">
+			<div class="card__titletext">
+				<%= @post.title %>
+			</div>
+			<div class="card__overviewtext">
+				<%= @post.description %>
+			</div>
+		</div>
+		<%= link_to '詳細', post_path(@post)%>
+	</div>
+</div>
+
+<%# google map %>
+<div class="aspect">
+	<div id="gmap_canvas" class="g_canvas">
+	</div>
+	<span id="ver" style="font-size: 0.8em; color: gray;"></span>
+</div>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.api_key[:google]%>&callback=initMap" async defer></script>

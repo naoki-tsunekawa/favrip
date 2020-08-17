@@ -1,10 +1,6 @@
 
-
 // googlemapを表示する
 function initMap(){
-
-	console.log(navigator.geolocation.getCurrentPosition)
-
 	navigator.geolocation.getCurrentPosition(
 		// 取得成功した場合
 		function(position) {
@@ -49,7 +45,6 @@ function initMap(){
 	//mapをクリックしたときのイベントを設定
 	window.onload = function() {
 		google.maps.event.addListener(map, 'click', mylistener);
-
 	}
 
 	//クリックしたときの処理
@@ -91,6 +86,24 @@ function codeAddress(){
   });
 }
 
+window.onload = function() {
+	// modal
+	const btn = document.getElementById('btn-modal');
+	const modal = document.getElementById('modal');
+	const closeBtn = document.getElementById('closeBtn');
+	// 表示ボタン押下時処理
+	btn.addEventListener('click', function() {
+		modal.style.display = 'block';
+	});
+
+	// 閉じるボタン押下処理
+	closeBtn.addEventListener('click', function() {
+		modal.style.display = 'none';
+	});
+}
+
+
+
 // google mapを表示
 // function dispMap(e) {
 
@@ -109,19 +122,3 @@ function codeAddress(){
 // 	console.log('hoge');
 // 	mapBtn.addEventListener('click', {el: target, handleEvent: dispMap});
 // }
-
-
-// modal
-var btn = document.getElementById('btn-modal');
-var modal = document.getElementById('modal');
-var closeBtn = document.getElementById('closeBtn');
-
-// 表示ボタン押下時処理
-btn.addEventListener('click', function() {
-  modal.style.display = 'block';
-});
-
-// 閉じるボタン押下処理
-closeBtn.addEventListener('click', function() {
-  modal.style.display = 'none';
-});
