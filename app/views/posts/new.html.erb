@@ -1,4 +1,5 @@
 
+
 <div class="form-wrapper">
 	<h5 class='form-title form-mb'>新規投稿</h5>
 	<%= form_with model: @post, local: true do |f| %>
@@ -54,4 +55,6 @@
 
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.api_key[:google]%>&callback=initMap" async defer></script>
+<%# javascript読み込み %>
+<%= javascript_include_tag "posts/new.js" %>
 
