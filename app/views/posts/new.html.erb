@@ -53,8 +53,8 @@
 	</div>
 </div>
 
-
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.api_key[:google]%>&callback=initMap" async defer></script>
 <%# javascript読み込み %>
 <%= javascript_include_tag "posts/new.js" %>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.api_key[:google]%>&callback=initMap" async defer></script>
+
 
