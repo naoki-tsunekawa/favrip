@@ -8,7 +8,7 @@
 		</div>
 
 		<div class="item">
-      <%= link_to posts_path do %>
+      <%= link_to posts_path, data: {"turbolinks" => false} do %>
             <div class="text">
               <i class="fas fa-home">ホーム</i>
             </div>
@@ -16,7 +16,7 @@
     </div>
 
     <div class="item">
-			<%= link_to new_post_path do %>
+			<%= link_to new_post_path, data: {"turbolinks" => false} do %>
 				<div class="text">
 					<i class="fas fa-plus">新規作成</i>
 				</div>

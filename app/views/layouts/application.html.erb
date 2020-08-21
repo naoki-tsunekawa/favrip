@@ -6,12 +6,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%# <script src="https://kit.fontawesome.com/ad0b153fee.js" crossorigin="anonymous"></script> %>
+    <script src="https://kit.fontawesome.com/ad0b153fee.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%# ナビゲーションバー %>
+  <%# ナビゲーションバー %>
 	<%= render 'partial/navbar' %>
 	<div class="container">
 		<% if flash.notice.present? %>
