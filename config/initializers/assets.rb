@@ -15,3 +15,12 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 # javascript個別読み込み設定
 Rails.application.config.assets.precompile += %w( posts/*.js )
+
+# scss個別読み込み設定
+Rails.application.config.assets.precompile += %w(
+	style.css
+	common/*
+	partial/*
+	posts/index.css
+	posts/new.css
+ )

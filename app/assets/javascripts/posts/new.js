@@ -1,56 +1,18 @@
 
-// googlemapを表示する
-function initMap(){
-	// initMap確認用
+// modal表示イベント
+// addEventListenerのエラー対策
+// turbolinks有効時のwindow.loadの代わりに使う
+document.addEventListener('turbolinks:load', function() {
+
+	// 確認用console.log
 	console.log("hoge");
 
-	navigator.geolocation.getCurrentPosition(
-		// 取得成功した場合
-		function(position) {
-			// 緯度・経度を変数に格納
-			var mapLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-			// マップオプションを変数に格納
-			var mapOptions = {
-				zoom : 8,          // 拡大倍率
-				center : mapLatLng  // 緯度・経度
-			};
-			// マップオブジェクト作成
-			map = new google.maps.Map(
-				document.getElementById("map"), // マップを表示する要素
-				mapOptions         // マップオプション
-			);
-			// 　マップにマーカーを表示する
-			var marker = new google.maps.Marker({
-				map : map,             // 対象の地図オブジェクト
-				position : mapLatLng   // 緯度・経度
-			});
-		},
-		// 取得失敗した場合
-		function(error) {
-			// エラーメッセージを表示
-			switch(error.code) {
-				case 1: // PERMISSION_DENIED
-					alert("位置情報の利用が許可されていません");
-					break;
-				case 2: // POSITION_UNAVAILABLE
-					alert("現在位置が取得できませんでした");
-					break;
-				case 3: // TIMEOUT
-					alert("タイムアウトになりました");
-					break;
-				default:
-					alert("その他のエラー(エラーコード:"+error.code+")");
-					break;
-			}
-		}
-	);
-
-	//mapをクリックしたときのイベントを設定
+	//mapクリックイベント
 	window.onload = function() {
 		google.maps.event.addListener(map, 'click', mylistener);
 	}
 
-	//クリックしたときの処理
+	//mylistener関数
 	function mylistener(event){
 		//marker作成
 		var marker = new google.maps.Marker();
@@ -61,56 +23,22 @@ function initMap(){
 		marker.setMap(map);
 	}
 
-};
+	// modal
+	const btn = document.getElementById('btn-modal');
+	const modal = document.getElementById('modal');
+	const closeBtn = document.getElementById('closeBtn');
+	// 表示ボタン押下時処理
+	btn.addEventListener('click', function() {
+		modal.style.display = 'block';
+	});
 
-
-let geocoder
-const addressDis = document.getElementById('results')
-
-// 検索&Googlemap更新処理
-function codeAddress(){
-	geocoder = new google.maps.Geocoder();
-
-  let inputAddress = document.getElementById('address').value;
-
-  geocoder.geocode( { 'address': inputAddress}, function(results, status) {
-    if (status == 'OK') {
-      map.setCenter(results[0].geometry.location);
-      var marker = new google.maps.Marker({
-          map: map,
-          position: results[0].geometry.location
-      });
-
-			addressDis.textContent = results[0].formatted_address;
-
-    } else {
-      alert('該当する結果がありませんでした：' + status);
-    }
-  });
-}
-
-// addEventListenerのエラー対策
-// turbolinks有効時のwindow.loadの代わりに使う
-document.addEventListener('turbolinks:load', function() {
-		// modal
-		const btn = document.getElementById('btn-modal');
-		const modal = document.getElementById('modal');
-		const closeBtn = document.getElementById('closeBtn');
-		// 表示ボタン押下時処理
-		btn.addEventListener('click', function() {
-			modal.style.display = 'block';
-		});
-
-		// 閉じるボタン押下処理
-		closeBtn.addEventListener('click', function() {
-			modal.style.display = 'none';
-		});
+	// 閉じるボタン押下処理
+	closeBtn.addEventListener('click', function() {
+		modal.style.display = 'none';
+	});
 });
 
 
-window.onload = function() {
-	console.log("hoge")
-}
 
 // google mapを表示
 // function dispMap(e) {

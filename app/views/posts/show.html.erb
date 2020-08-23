@@ -1,3 +1,6 @@
+<% content_for :css do %>
+	<%= stylesheet_link_tag 'posts/show' %>
+<% end %>
 
 <div class="card card-skin">
 	<div class="item-wrapper">
@@ -15,11 +18,11 @@
 </div>
 
 <%# google map %>
-<div class="aspect">
-	<div id="gmap_canvas" class="g_canvas">
-	</div>
-	<span id="ver" style="font-size: 0.8em; color: gray;"></span>
+<div class="map-container">
+	<div id='map'></div>
 </div>
 
 
+<%# javascript読み込み %>
+<%= javascript_include_tag "posts/gmap.js" %>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.api_key[:google]%>&callback=initMap" async defer></script>
