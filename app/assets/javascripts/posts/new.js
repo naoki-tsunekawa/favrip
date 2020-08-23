@@ -41,20 +41,20 @@ document.addEventListener('turbolinks:load', function() {
 
 
 // google mapを表示
-// function dispMap(e) {
+function dispMap(e) {
 
-// const status = this.el.getAttribute('data-map-status');
+const status = this.el.getAttribute('data-map-status');
 
-// 	if (status === 'unactive') {
-// 		this.el.setAttribute('data-map-status', 'active');
-// 	}else{
-// 		this.el.setAttribute('data-map-status', 'unactive');
-// 	}
-// }
+	if (status === 'unactive') {
+		this.el.setAttribute('data-map-status', 'active');
+	}else{
+		this.el.setAttribute('data-map-status', 'unactive');
+	}
+}
 
-// window.onload = function() {
-// 	const mapBtn = document.getElementById('btn-disp-map');
-// 	const target = document.getElementById('form-map-container');
-// 	console.log('hoge');
-// 	mapBtn.addEventListener('click', {el: target, handleEvent: dispMap});
-// }
+window.onload = function() {
+	const mapBtn = document.getElementById('btn-disp-map');
+	const target = document.getElementById('form-map-container');
+	console.log('hoge');
+	mapBtn.addEventListener('click', {el: target, handleEvent: dispMap});
+}

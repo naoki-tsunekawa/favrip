@@ -23,4 +23,5 @@ Rails.application.config.assets.precompile += %w(
 	partial/*
 	posts/index.css
 	posts/new.css
+	posts/show.css
  )
