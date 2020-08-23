@@ -1,4 +1,6 @@
-
+<% content_for :css do %>
+	<%= stylesheet_link_tag 'posts/new' %>
+<% end %>
 
 <div class="form-wrapper">
 	<h5 class='form-title form-mb'>新規投稿</h5>
@@ -54,7 +56,6 @@
 </div>
 
 <%# javascript読み込み %>
+<%= javascript_include_tag "posts/gmap.js" %>
 <%= javascript_include_tag "posts/new.js" %>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.api_key[:google]%>&callback=initMap" async defer></script>
-
-

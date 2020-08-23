@@ -1,7 +1,4 @@
-// Place all the styles related to the posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
+@import "partial/card";
 
 //入力フォームのスタイル
 .form-title {
@@ -82,16 +79,6 @@
   width: 90%;
   height: 400px;
 }
-
-// map form
-// .form-map {
-//   display: block;
-
-//   &[data-map-status="active"] {
-//     display: block;
-//   }
-// }
-
 
 // modal
 .modal {

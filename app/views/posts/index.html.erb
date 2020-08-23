@@ -1,3 +1,6 @@
+<% content_for :css do %>
+	<%= stylesheet_link_tag 'posts/index' %>
+<% end %>
 
 <div class="card card-skin">
 	<% @posts.each do |post| %>
@@ -11,7 +14,7 @@
 					<%= post.description %>
 				</div>
 			</div>
-			<%= link_to '詳細', post_path(post), class: ''%>
+			<%= link_to '詳細', post_path(post), data: {"turbolinks" => false}, class: ''%>
 			<%= link_to '削除', post, method: :delete, data: { confirm: "タスク「#{post.title}」を削除します。よろしいですか？"}, class: '' %>
 		</div>
 	<% end %>

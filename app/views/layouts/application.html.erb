@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+	  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
     <title>Favrip</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%# <script src="https://kit.fontawesome.com/ad0b153fee.js" crossorigin="anonymous"></script> %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/ad0b153fee.js" crossorigin="anonymous"></script>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'style', :media => "all" %>
+    <%= stylesheet_link_tag 'common/reset', :media => "all" %>
+    <%= stylesheet_link_tag 'common/navbar', :media => "all" %>
+    <%= yield :css %>
+
   </head>
 
   <body>
-    <%# ナビゲーションバー %>
+  <%# ナビゲーションバー %>
 	<%= render 'partial/navbar' %>
-	<div class="container">
+  <%# 更新したメッセージを表示する %>
+	<div class="messege-container">
 		<% if flash.notice.present? %>
 			<div class="alert-success">
 				<%= flash.notice %>
