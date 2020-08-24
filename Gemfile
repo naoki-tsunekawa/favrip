@@ -64,3 +64,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #carrierwave, mini_magick
 gem 'carrierwave'
 gem 'mini_magick'
+
+#dotenv-rails
+gem 'dotenv-rails'
