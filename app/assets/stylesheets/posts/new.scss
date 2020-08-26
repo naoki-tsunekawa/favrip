@@ -1,4 +1,5 @@
 @import "partial/card";
+@import "partial/gmap";
 
 //入力フォームのスタイル
 .form-title {
@@ -72,12 +73,6 @@
 
 .btn-modal {
   border: 1px solid;
-}
-
-// googlemap style
-#map {
-  width: 90%;
-  height: 400px;
 }
 
 // modal
