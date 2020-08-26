@@ -13,9 +13,10 @@
 				<%= @post.description %>
 			</div>
 		</div>
-		<%= link_to '詳細', post_path(@post)%>
 	</div>
 </div>
+
+<%= hidden_field_tag :address, @post.address %>
 
 <%# google map %>
 <div class="map-container">
@@ -24,5 +25,5 @@
 
 
 <%# javascript読み込み %>
-<%= javascript_include_tag "posts/gmap.js" %>
+<%= javascript_include_tag "posts/gmap_show.js" %>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['gmapkey']%>&callback=initMap" async defer></script>
