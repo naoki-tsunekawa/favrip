@@ -6,22 +6,24 @@
 	<div class="item-wrapper">
 		<img class="card__imgframe" src="<%= "#{@post.image}" %>">
 		<div class="card__textbox">
-			<div class="card__titletext">
+			<div id="postTitle" class="card__titletext">
 				<%= @post.title %>
 			</div>
 			<div class="card__overviewtext">
 				<%= @post.description %>
 			</div>
 		</div>
+		<%= link_to '編集', edit_post_path, data: {"turbolinks" => false}, class: ''%>
 	</div>
+	<%= hidden_field_tag :address, @post.address %>
 </div>
-
-<%= hidden_field_tag :address, @post.address %>
 
 <%# google map %>
 <div class="map-container">
-	<div id='map'></div>
+	<div id="map" class="map"></div>
 </div>
+
+
 
 
 <%# javascript読み込み %>

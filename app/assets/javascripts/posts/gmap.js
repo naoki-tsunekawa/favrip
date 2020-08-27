@@ -5,16 +5,14 @@ const addressDis = document.getElementById('results');
 
 // googlemapを表示する
 function initMap(){
-	// initMap確認用
-	console.log("fuga");
 
 	navigator.geolocation.getCurrentPosition(
 		// 取得成功した場合
 		function(position) {
 			// 緯度・経度を変数に格納
-			var mapLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+			let mapLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 			// マップオプションを変数に格納
-			var mapOptions = {
+			let mapOptions = {
 				zoom : 8,          // 拡大倍率
 				center : mapLatLng  // 緯度・経度
 			};
@@ -24,7 +22,7 @@ function initMap(){
 				mapOptions         // マップオプション
 			);
 			// 　マップにマーカーを表示する
-			var marker = new google.maps.Marker({
+			let marker = new google.maps.Marker({
 				map : map,             // 対象の地図オブジェクト
 				position : mapLatLng   // 緯度・経度
 			});
