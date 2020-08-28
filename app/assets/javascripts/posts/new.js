@@ -1,5 +1,4 @@
 
-// modal表示イベント
 // addEventListenerのエラー対策
 // turbolinks有効時のwindow.loadの代わりに使う
 document.addEventListener('turbolinks:load', function() {
@@ -22,39 +21,4 @@ document.addEventListener('turbolinks:load', function() {
 		//marker設置
 		marker.setMap(map);
 	}
-
-	// modal
-	const btn = document.getElementById('btn-modal');
-	const modal = document.getElementById('modal');
-	const closeBtn = document.getElementById('closeBtn');
-	// 表示ボタン押下時処理
-	btn.addEventListener('click', function() {
-		modal.style.display = 'block';
-	});
-
-	// 閉じるボタン押下処理
-	closeBtn.addEventListener('click', function() {
-		modal.style.display = 'none';
-	});
 });
-
-
-
-// google mapを表示
-// function dispMap(e) {
-
-// const status = this.el.getAttribute('data-map-status');
-
-// 	if (status === 'unactive') {
-// 		this.el.setAttribute('data-map-status', 'active');
-// 	}else{
-// 		this.el.setAttribute('data-map-status', 'unactive');
-// 	}
-// }
-
-// window.onload = function() {
-// 	const mapBtn = document.getElementById('btn-disp-map');
-// 	const target = document.getElementById('form-map-container');
-// 	console.log('hoge');
-// 	mapBtn.addEventListener('click', {el: target, handleEvent: dispMap});
-// }
