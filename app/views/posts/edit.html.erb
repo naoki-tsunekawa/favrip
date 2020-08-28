@@ -1,2 +1,57 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<% content_for :css do %>
+	<%= stylesheet_link_tag 'posts/edit' %>
+<% end %>
+
+<div class="form-wrapper">
+	<h5 class='form-title form-mb'>投稿編集</h5>
+	<%= form_with model: @post, local: true do |f| %>
+		<div class="form-group">
+			<img class="card__imgframe" src="<%= "#{@post.image}" %>">
+		<div class="form-group">
+			<div class="form-text">
+				タイトル
+			</div>
+			<%= f.text_field :title, placeholder: '例)京都', class: 'form-control'%>
+		</div>
+		<div class="form-group">
+			<div class="form-text">
+				コメント
+			</div>
+			<%= f.text_area :description, cols: 40, rows: 8, class: 'form-control form-text-area' %>
+		</div>
+		<div class="form-group">
+			<div class="form-text">
+				住所
+			</div>
+			<%= f.text_field :address, placeholder: '', class: 'form-control' %>
+		</div>
+			<%# <button id="btn-modal">地図から検索</button> %>
+			<input id="btn-modal" type="button" value="地図から検索">
+			<%= f.submit nil, class: 'btn btn-control' %>
+	<%end%>
+	<div id="modal" class="modal">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div class="modal-header">
+					地図で場所を選択
+				</div>
+				<div class="modal-body">
+					<div class="form-map">
+						<input id="address" type="textbox" placeholder="住所">
+						<input type="button" value="検索" onclick="codeAddress()">
+						<%# <label id="results" for="県">東京</label> %>
+						<div id='map'></div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<input type="button" id="closeBtn" value="close">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%# javascript読み込み %>
+<%= javascript_include_tag "posts/gmap.js" %>
+<%= javascript_include_tag "posts/modal.js" %>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['gmapkey']%>&callback=initMap" async defer></script>
