@@ -2,6 +2,17 @@
 	<%= stylesheet_link_tag 'posts/new' %>
 <% end %>
 
+<%# エラーメッセージ表示 %>
+<% if @post.errors.present? %>
+	<ul id="error_explanation">
+		<% @post.errors.full_messages.each do |message| %>
+			<li>
+				<%= message %>
+			</li>
+		<% end %>
+	</ul>
+<% end %>
+
 <div class="form-wrapper">
 	<h5 class='form-title form-mb'>新規投稿</h5>
 	<%= form_with model: @post, local: true do |f| %>
