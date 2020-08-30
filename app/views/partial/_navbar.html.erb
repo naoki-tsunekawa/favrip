@@ -1,21 +1,21 @@
-    <%# ナビゲーションバー %>
-	<div class="nav-container">
+<%# ナビゲーションバー %>
+<div class="nav-container">
+	<div class="nav-header">
+		<div class="text">
+			<i class="fas fa-map-marker-alt app-name">Favrip</i>
+		</div>
+	</div>
 
-		<div class="nav-header">
-			<div class="text">
-        <i class="fas fa-map-marker-alt app-name">Favrip</i>
-			</div>
+	<% if current_user %>
+		<div class="item">
+			<%= link_to posts_path, data: {"turbolinks" => false} do %>
+						<div class="text">
+							<i class="fas fa-home">ホーム</i>
+						</div>
+			<%end%>
 		</div>
 
 		<div class="item">
-      <%= link_to posts_path, data: {"turbolinks" => false} do %>
-            <div class="text">
-              <i class="fas fa-home">ホーム</i>
-            </div>
-      <%end%>
-    </div>
-
-    <div class="item">
 			<%= link_to new_post_path, data: {"turbolinks" => false} do %>
 				<div class="text">
 					<i class="fas fa-plus">新規作成</i>
@@ -23,20 +23,37 @@
 			<%end%>
 		</div>
 
-		<div class="item">
-			<a href="#">
+		<%= link_to admin_user_path(current_user.id), data: {"turbolinks" => false} do %>
+			<div class="item">
 				<div class="text">
-					<i class="fas fa-user">マイページ</i>
+					<i class="fas fa-sign-out-alt">マイページ</i>
 				</div>
-			</a>
-		</div>
+			</div>
+		<% end %>
 
-		<div class="item">
-			<a href="#">
+		<%= link_to logout_path, method: :delete, data: {"turbolinks" => false} do %>
+			<div class="item">
 				<div class="text">
 					<i class="fas fa-sign-out-alt">ログアウト</i>
 				</div>
-			</a>
+			</div>
+		<% end %>
+
+	<% else %>
+	<div class="item">
+			<%= link_to login_path, data: {"turbolinks" => false} do %>
+				<div class="text">
+					<i class="fas fa-sign-out-alt">サインアップ</i>
+				</div>
+			<% end %>
 		</div>
 
-	</div>
+		<div class="item">
+			<%= link_to new_admin_user_path, data: {"turbolinks" => false} do %>
+				<div class="text">
+					<i class="fas fa-sign-out-alt">サインイン</i>
+				</div>
+			<% end %>
+		</div>
+	<% end %>
+</div>
