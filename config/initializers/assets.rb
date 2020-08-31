@@ -19,10 +19,12 @@ Rails.application.config.assets.precompile += %w( posts/*.js )
 # scss個別読み込み設定
 Rails.application.config.assets.precompile += %w(
 	style.css
+	sessions.css
 	common/*
 	partial/*
 	posts/index.css
 	posts/new.css
 	posts/show.css
 	posts/edit.css
+	admin/new.css
  )
