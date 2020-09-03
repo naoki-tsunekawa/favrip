@@ -1,4 +1,7 @@
 class Admin::UsersController < ApplicationController
+  # ユーザ新規登録機能をログインしていなくても
+  skip_before_action :login_required, only: %i[new create]
+
   def index
     @users = User.all
   end
