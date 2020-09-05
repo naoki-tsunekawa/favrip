@@ -41,8 +41,9 @@
 			<%= f.text_field :address, placeholder: '', class: 'form-control' %>
 		</div>
 			<%# <button id="btn-modal">地図から検索</button> %>
-			<input id="btn-modal" type="button" value="地図から検索">
-			<%= f.submit nil, class: 'btn btn-control' %>
+			<input id="btn-modal" type="button" value="地図から検索" class="btn btn-control">
+			<%# <%= f.submit nil, class: 'btn btn-control' %>
+			<%= f.button '投稿する', type: 'button', onclick: 'submit();', class: 'btn btn-control' %>
 	<%end%>
 	<div id="modal" class="modal">
 		<div class="modal-content">

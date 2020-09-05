@@ -15,7 +15,7 @@
 				</div>
 			</div>
 			<%= link_to '詳細', post_path(post), data: {"turbolinks" => false}, class: ''%>
-			<%= link_to '削除', post, method: :delete, data: { confirm: "タスク「#{post.title}」を削除します。よろしいですか？"}, class: '' %>
+			<%= link_to '削除', post, method: :delete, data: { confirm: "投稿「#{post.title}」を削除します。よろしいですか？"}, class: '' %>
 		</div>
 	<% end %>
 </div>

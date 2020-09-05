@@ -8,6 +8,8 @@ class Admin::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # postsテーブルに保存されているログインしているユーザの投稿を取得
+    @posts = Post.where(user_id: current_user.id)
   end
 
   def new
