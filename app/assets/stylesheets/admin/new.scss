@@ -1,1 +1,35 @@
+// 今のところ使わなずにスタイルを描いていくので最後まで使わない場合
+// 削除する。
 @import "partial/users_form";
+
+.container {
+	width: 500px;
+	margin: 50px auto;
+}
+
+.form-title {
+	font-size: 3rem;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+// partial "_users_form.html" style
+.form-item {
+	margin-bottom: 50px;
+}
+
+.form-label {
+	display: block;
+	opacity: 0.6;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+// input style
+.form-control {
+	display: block;
+	width: 80%;
+	margin: 0 auto;
+	padding: 3px;
+	border: solid 1px #ccc;
+}

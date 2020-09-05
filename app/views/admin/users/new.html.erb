@@ -2,11 +2,8 @@
 	<%= stylesheet_link_tag 'admin/new' %>
 <% end %>
 
+<div class="container">
+	<h1 class="form-item form-title">ユーザ登録</h1>
 
-<h1>ユーザ登録</h1>
-
-<div class="nav justify-content-end">
-  <%=link_to 'back page', admin_users_path, class: 'nav-link'%>
+	<%= render partial: 'users_form', locals: { user: @user }%>
 </div>
-
-<%= render partial: 'users_form', locals: { user: @user }%>
