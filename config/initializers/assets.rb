@@ -27,4 +27,5 @@ Rails.application.config.assets.precompile += %w(
 	posts/show.css
 	posts/edit.css
 	admin/new.css
+	admin/show.css
  )
