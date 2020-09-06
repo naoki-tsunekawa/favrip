@@ -67,3 +67,6 @@ gem 'mini_magick'
 
 #dotenv-rails
 gem 'dotenv-rails'
+
+# Ransack
+gem 'ransack'

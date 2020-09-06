@@ -1,0 +1,19 @@
+<div class="card-wrapper">
+	<div class="card">
+		<% @posts.each do |post| %>
+			<div class="item-wrapper">
+				<img class="card__imgframe" src="<%= "#{post.image}" %>">
+				<div class="card__textbox">
+					<div class="card__titletext">
+						<%= post.title %>
+					</div>
+					<div class="card__overviewtext">
+						<%= post.description %>
+					</div>
+				</div>
+				<%= link_to '詳細', post_path(post), data: {"turbolinks" => false}, class: ''%>
+				<%= link_to '削除', post, method: :delete, data: { confirm: "投稿「#{post.title}」を削除します。よろしいですか？"}, class: '' %>
+			</div>
+		<% end %>
+	</div>
+</div>
