@@ -2,7 +2,7 @@
 <div class="nav-container">
 	<div class="nav-header">
 		<div class="text">
-			<i class="fas fa-map-marker-alt app-name">Favrip</i>
+			<i class="fas fa-map-marked-alt app-name">Favrip</i>
 		</div>
 	</div>
 
@@ -18,7 +18,7 @@
 		<div class="item">
 			<%= link_to new_post_path, data: {"turbolinks" => false} do %>
 				<div class="text">
-					<i class="fas fa-plus">新規作成</i>
+					<i class="fas fa-plus">投稿する</i>
 				</div>
 			<%end%>
 		</div>
@@ -26,9 +26,19 @@
 		<%= link_to admin_user_path(current_user.id), data: {"turbolinks" => false} do %>
 			<div class="item">
 				<div class="text">
-					<i class="fas fa-sign-out-alt">マイページ</i>
+					<i class="fas fa-user">マイページ</i>
 				</div>
 			</div>
+		<% end %>
+
+		<% if current_user.admin? %>
+			<%= link_to admin_users_path, data: {"turbolinks" => false}  do %>
+				<div class="item">
+					<div class="text">
+						<i class="fas fa-users">ユーザ一覧</i>
+					</div>
+				</div>
+			<% end %>
 		<% end %>
 
 		<%= link_to logout_path, method: :delete, data: {"turbolinks" => false} do %>

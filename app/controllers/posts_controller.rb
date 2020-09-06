@@ -1,11 +1,15 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: %i[show edit]
+
   def index
     # 全ての投稿を取得　※一時的に
-    @posts = Post.all
+    # posts = Post.all
+    # 検索機能
+    @search = Post.ransack(params[:q])
+    @posts = @search.result
   end
 
   def show
-    @post = Post.find(params[:id])
   end
 
   def new
@@ -28,7 +32,6 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
@@ -48,4 +51,9 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :description , :image, :address)
   end
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
 end

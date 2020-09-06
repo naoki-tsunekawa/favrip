@@ -1,13 +1,14 @@
 class Admin::UsersController < ApplicationController
-  # ユーザ新規登録機能をログインしていなくても
+  # ユーザ新規登録機能をログインしていなくても使用できるようにする
   skip_before_action :login_required, only: %i[new create]
+  before_action :require_admin, only: %i[index]
+  before_action :set_user, only: %i[show edit]
 
   def index
     @users = User.all
   end
 
   def show
-    @user = User.find(params[:id])
     # postsテーブルに保存されているログインしているユーザの投稿を取得
     @posts = Post.where(user_id: current_user.id)
   end
@@ -17,7 +18,6 @@ class Admin::UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def create
@@ -51,6 +51,14 @@ class Admin::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation)
+  end
+
+  def require_admin
+    redirect_to root_url unless current_user.admin?
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 
 end
