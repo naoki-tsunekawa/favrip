@@ -13,6 +13,12 @@
       <%=f.label :password, 'パスワード', class: 'form-label'%>
       <%=f.password_field :password, class: 'form-control', id: 'session_password'%>
     </div>
-    <%=f.submit 'ログインする', class: 'btn btn-primary'%>
+    <div class="btn-container">
+      <%=f.button type: 'button', onclick: 'submit();', class: 'btn slide-bg' do %>
+        <span class="bg"></span>
+        ログイン
+      <% end %>
+
+    </div>
   <%end%>
 </div>

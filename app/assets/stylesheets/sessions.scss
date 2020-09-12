@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$cWhite: white;
+$cBlack: black;
+
 .container {
 	// background-color: whitesmoke;
 	width: 500px;
@@ -18,7 +21,6 @@
 	margin-bottom: 30px;
 }
 
-
 .form-label {
 	display: block;
 	opacity: 0.6;
@@ -33,3 +35,51 @@
 	padding: 3px;
 	border: solid 1px #ccc;
 }
+
+// button style
+.btn-container {
+	text-align: center;
+}
+
+.btn {
+	// 背景色,文字色,縁取り
+	background-color: $cWhite;
+	border: 1px solid $cBlack;
+	font-weight: 600px;
+	// padding margin
+	padding: 10px 40px;
+	margin: 50px 0;
+	cursor: pointer;
+	transition: all 0.3s;
+
+	// 背景スライド
+	& .slide-bg {
+		position: relative;
+		overflow: hidden;
+		z-index: 1;
+
+		& .bg {
+			display: inline-block;
+			width: 100px;
+			height: 100px;
+			background-color: $cBlack;
+			position: absolute;
+			top: 0;
+			left: 0;
+			transform: translateX(-100%);
+			transition: transform	0.3s;
+			z-index: -1;
+		}
+
+		&:hover {
+			color: $cBlack;
+
+			& .bg {
+				transform: none;
+			}
+		}
+	}
+}
+
+
+
