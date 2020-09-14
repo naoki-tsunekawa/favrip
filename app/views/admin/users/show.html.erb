@@ -4,25 +4,27 @@
 
 <h1>マイページ</h1>
 
-<table class="table table-hover">
-    <tbody>
-        <tr>
-            <th><%=User.human_attribute_name(:name)%></th>
-            <td><%=@user.name%></td>
-        </tr>
-        <tr>
-            <th><%=User.human_attribute_name(:email)%></th>
-            <td><%=@user.email%></td>
-        </tr>
-        <tr>
-            <th>ユーザ種別</th>
-            <td><%=@user.admin? ? '管理者' : '一般ユーザ'%></td>
-        </tr>
-    </tbody>
-</table>
+<div class="user-global-container">
 
-<%=link_to '編集', edit_admin_user_path, class: 'btn btn-primary mr-3'%>
+  <%# プロフィール画像 %>
+  <div class="img-container">
+    <img class="profile-img" src="<%= "#{@user.image}" %>">
+  </div>
 
+  <%# ユーザ情報 %>
+  <div class="user-container">
+    <%# User name %>
+    <div class="user-name">
+      <div class="name__contents">
+        <div class="name__text">
+          <%= @user.name %>
+        </div>
+        <%=link_to '編集', edit_admin_user_path, class: 'btn'%>
+      </div>
+    </div>
+  </div>
+
+</div>
 
 
 <%# 投稿カードのパーシャル呼び出し %>
