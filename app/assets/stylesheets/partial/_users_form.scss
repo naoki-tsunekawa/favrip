@@ -1,0 +1,70 @@
+// 共通部分のスタイル用のscssファイルを作ってもいいかも
+$cWhite: white;
+$cBlack: #2c3e50;
+
+.form-item {
+	margin-bottom: 50px;
+}
+
+.form-label {
+	display: block;
+	opacity: 0.6;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+// input style
+.form-control {
+	display: block;
+	width: 80%;
+	margin: 0 auto;
+	padding: 3px;
+	border: solid 1px #ccc;
+}
+
+
+// button style
+.btn-container {
+	text-align: center;
+}
+
+.btn {
+	// 背景色,文字色,縁取り
+	background-color: $cWhite;
+	border: 1px solid $cBlack;
+	font-weight: 300px;
+	// padding margin
+	padding: 10px 40px;
+	margin: 50px 0;
+	cursor: pointer;
+	transition: all 0.3s;
+
+	// 背景スライド
+	&.slide-bg {
+		position: relative;
+		overflow: hidden;
+		z-index: 1;
+
+		& .bg {
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+			background-color: $cBlack;
+			position: absolute;
+			top: 0;
+			left: 0;
+			transform: translateX(-100%);
+			transition: transform	0.3s;
+			z-index: -1;
+		}
+
+		&:hover {
+			color: $cWhite;
+
+			& .bg {
+				transform: none;
+			}
+		}
+	}
+}
+

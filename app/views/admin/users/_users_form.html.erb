@@ -25,5 +25,11 @@
         <%=f.label :password_confirmation, 'パスワード(確認用)', class: 'form-label'%>
         <%=f.password_field :password_confirmation, class: 'form-control'%>
     </div>
-    <%=f.submit '登録する', class: 'btn btn-primary'%>
+
+    <div class="btn-container">
+      <%=f.button type: 'button', onclick: 'submit();', class: 'btn slide-bg' do %>
+        <span class="bg"></span>
+        登録する
+      <% end %>
+    </div>
 <%end%>
