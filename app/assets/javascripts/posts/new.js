@@ -9,6 +9,7 @@ document.addEventListener('turbolinks:load', function() {
 	//mapクリックイベント
 	window.onload = function() {
 		google.maps.event.addListener(map, 'click', mylistener);
+
 	}
 
 	//mylistener関数
@@ -20,5 +21,6 @@ document.addEventListener('turbolinks:load', function() {
 		marker.setPosition(new google.maps.LatLng(event.latLng.lat(), event.latLng.lng()));
 		//marker設置
 		marker.setMap(map);
+		console.log("fuga");
 	}
 });
