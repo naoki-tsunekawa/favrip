@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+	# 画像投稿機能
 	mount_uploader :image, ImageUploader
 
 	validates :title, presence: true

@@ -2,9 +2,41 @@
 	<%= stylesheet_link_tag 'admin/edit' %>
 <% end %>
 
+<h1 class="form-title">プロフィール編集</h1>
+
 <div class="container">
-  <h1 class="form-title">プロフィール編集</h1>
-  <%=render partial: 'users_form', locals: { user: @user } %>
+  <%# フォーム出力 %>
+  <%=form_with model: [:admin, @user], local: true do |f|%>
+
+    <%# ユーザネーム %>
+    <div class="form-item">
+      <%=f.label :name, 'ユーザネーム', class: 'form-label'%>
+      <%=f.text_field :name, class: 'form-control'%>
+    </div>
+
+    <%# 画像投稿 %>
+    <div class="form-item">
+      <%= f.label :image, '画像', class: 'form-label'%>
+      <div class="form-img">
+        <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png', class: 'img-post' %>
+      </div>
+    </div>
+
+    <%# 自己紹介 %>
+    <div class="form-item">
+      <%=f.label :description, '自己紹介', class: 'form-label'%>
+      <%= f.text_area :description, cols: 40, rows: 8, class: 'form-control form-text-area' %>
+    </div>
+
+    <%# 登録ボタン %>
+    <div class="btn-container">
+      <%=f.button type: 'button', onclick: 'submit();', class: 'btn slide-bg' do %>
+        <span class="bg"></span>
+        登録する
+      <% end %>
+    </div>
+
+  <%end%>
 </div>
 
 
