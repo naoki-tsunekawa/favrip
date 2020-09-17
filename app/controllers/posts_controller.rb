@@ -36,8 +36,13 @@ class PostsController < ApplicationController
 
   def update
     post = Post.find(params[:id])
-    post.update!(post_params)
-    redirect_to posts_url, notice: "投稿「#{post.title}」を更新しました。"
+
+    if post.update(post_params)
+      redirect_to posts_url, notice: "投稿「#{post.title}」を更新しました。"
+    else
+      # バリデーションの設定をする　2020/09/17
+      render :edit
+    end
   end
 
   def destroy

@@ -1,6 +1,10 @@
 @import "partial/card";
 @import "partial/gmap";
 
+.global-container {
+	margin-top: 30px;
+}
+
 .map-container {
 	margin: 0 auto;
 	width: 800px;
