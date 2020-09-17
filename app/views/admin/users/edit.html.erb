@@ -6,7 +6,7 @@
 
 <div class="container">
   <%# フォーム出力 %>
-  <%=form_with model: [:admin, @user], local: true do |f|%>
+  <%=form_with model: [:admin, @user], local: true, class: 'form-container' do |f|%>
 
     <%# ユーザネーム %>
     <div class="form-item">
@@ -16,7 +16,7 @@
 
     <%# 画像投稿 %>
     <div class="form-item">
-      <%= f.label :image, '画像', class: 'form-label'%>
+      <%= f.label :image, 'プロフィール画像', class: 'form-label'%>
       <div class="form-img">
         <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png', class: 'img-post' %>
       </div>
@@ -25,15 +25,17 @@
     <%# 自己紹介 %>
     <div class="form-item">
       <%=f.label :description, '自己紹介', class: 'form-label'%>
-      <%= f.text_area :description, cols: 40, rows: 8, class: 'form-control form-text-area' %>
+      <%= f.text_area :description, cols: 35, rows: 8, class: 'form-control form-text-area' %>
     </div>
 
     <%# 登録ボタン %>
-    <div class="btn-container">
-      <%=f.button type: 'button', onclick: 'submit();', class: 'btn slide-bg' do %>
-        <span class="bg"></span>
-        登録する
-      <% end %>
+    <div class="form-item">
+      <div class="btn-container">
+        <%=f.button type: 'button', onclick: 'submit();', class: 'btn slide-bg' do %>
+          <span class="bg"></span>
+          登録する
+        <% end %>
+      </div>
     </div>
 
   <%end%>

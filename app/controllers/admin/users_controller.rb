@@ -32,12 +32,13 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(user_params[:id])
+    @user = User.find(params[:id])
 
     if @user.update(user_params)
       redirect_to admin_user_url(@user), notice: "ユーザー「#{@user.name}を更新しました。」"
     else
-      redirect :edit
+      # エラーメッセージを返すようにしてユーザにどこが間違っているか知らせるようにする。　2020/09/17
+      render :edit
     end
   end
 

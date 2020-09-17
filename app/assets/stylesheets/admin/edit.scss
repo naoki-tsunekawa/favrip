@@ -1,7 +1,9 @@
-// @import "partial/users_form";
+@import "partial/common";
+@import "partial/btn_slide";
+
 
 .container {
-	width: 50%;
+	width: 400px;
 	// height: 800px;
 	margin: 0 auto;
 	padding: 10px;
@@ -12,36 +14,38 @@
 .form-title {
 	font-size: 3rem;
 	text-align: center;
-	margin: 30px 0;
+	margin-top: 20px;
+}
+
+.form-container {
+	width: auto;
+	margin: 0 auto;
 }
 
 // form style
 .form-item {
-	width: 90%;
-	margin: 0 auto;
-	padding-top: 20px;
+	margin: 30px 0;
+}
 
-	// background-color: cadetblue;
+.form-text-area {
+	display: block;
 }
 
 .form-label {
-	// display: block;
-	// text-align: center;
-	width: 20%;
-
-	// background-color: darkgoldenrod;
+	display: block;
+	text-align: center;
+	margin-bottom: 20px;
 }
 
 .form-control {
+	display: block;
 	border: 1px solid black;
+	margin: 0 auto;
 }
 
-// .form-img {
-// 	width: 300px;
-// 	height: 30px;
-// 	background-color: darkgoldenrod;
-// }
-
-.img-post {
-	display: none;
+.form-img {
+	text-align: center;
+	padding: 0 50px;
 }
+
+
