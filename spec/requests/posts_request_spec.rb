@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Posts", type: :request do
+RSpec.describe "Posts", type: :request, js: true do
 	# indexアクションのテスト
 	context 'GET #index' do
 		before { get root_path }
