@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     resources :users
   end
 
+  get '/sign_up', to: 'admin/users#new'
+
+
   # posts
   root to: 'posts#index' #仮のトップページ
   resources :posts

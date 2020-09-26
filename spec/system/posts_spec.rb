@@ -17,7 +17,6 @@ describe '投稿管理機能', type: :system, js: true do
 				visit login_path
 				fill_in 'session_email', with: 'test1@example.com'
 				fill_in 'session_password', with: 'highway'
-				# click_button 'ログイン'
 				click_button 'ログイン'
 			end
 
