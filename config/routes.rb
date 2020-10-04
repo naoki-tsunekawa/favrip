@@ -4,14 +4,12 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-
   # users
   namespace :admin do
     resources :users
   end
 
   get '/sign_up', to: 'admin/users#new'
-
 
   # posts
   root to: 'posts#index' #仮のトップページ
