@@ -13,6 +13,12 @@
       <%=f.label :password, 'パスワード', class: 'form-label'%>
       <%=f.password_field :password, class: 'form-control', id: 'session_password'%>
     </div>
+    <div class="form-item">
+      <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span>ログイン情報を保存</span>
+      <% end %>
+    </div>
     <div class="btn-container">
       <%=f.button type: 'button', onclick: 'submit();', class: 'btn slide-bg' do %>
         <span class="bg"></span>
