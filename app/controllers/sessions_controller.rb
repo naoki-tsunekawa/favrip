@@ -10,7 +10,10 @@ class SessionsController < ApplicationController
     # 自動で追加された"authenticate"メソッドで行う
     if user&.authenticate(session_params[:password])
       # 認証ができた場合にセッションにuser_idを格納する
-      session[:user_id] = user.id
+      log_in user
+      # cookieにログイン情報を保存する
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+      # ルートurlへredirect
       redirect_to root_path, notice: 'ログインしました。'
     else
       # 認証失敗した場合再度ログインページを表示
@@ -20,8 +23,7 @@ class SessionsController < ApplicationController
 
   # ログアウト機能
   def destroy
-    # セッション内の情報を全て削除する
-    reset_session
+    log_out if logged_in?
     # ルートページに遷移
     redirect_to root_url, notice: 'ログアウトしました。'
   end
