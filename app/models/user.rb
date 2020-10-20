@@ -14,7 +14,7 @@ class User < ApplicationRecord
 	# バリデーション設定
 	validates :name, presence: true
 	validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
-	validates :password, presence: true, length: { minimum: 6 }
+	validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 	# UserとPostに対して1対多の関係を定義
 	has_many :posts
 
