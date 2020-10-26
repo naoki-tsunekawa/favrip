@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   get '/sign_up', to: 'admin/users#new'
-  post '/sign_up',  to: 'users#create'
+  post '/sign_up',  to: 'admin/users#create'
 
   # posts
   root to: 'posts#index' #仮のトップページ
