@@ -1,6 +1,7 @@
 class Admin::UsersController < ApplicationController
   # ユーザ新規登録機能をログインしていなくても使用できるようにする
   skip_before_action :login_required, only: %i[new create]
+  # adminユーザでない場合はユーザ一覧に遷移できないようにする。
   before_action :require_admin, only: %i[index]
   before_action :set_user, only: %i[show edit]
 
@@ -56,6 +57,8 @@ class Admin::UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation, :description, :image)
   end
 
+  # beforeアクション
+  # adminユーザでない場合はユーザ一覧に遷移できないようにする。
   def require_admin
     redirect_to root_url unless current_user.admin?
   end
