@@ -29,4 +29,5 @@ Rails.application.config.assets.precompile += %w(
 	admin/new.css
 	admin/show.css
 	admin/edit.css
+	admin/index.css
  )
