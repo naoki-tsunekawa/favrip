@@ -1,8 +1,9 @@
 class Admin::UsersController < ApplicationController
-  # ユーザ新規登録機能をログインしていなくても使用できるようにする
+  # ユーザ新規登録機能をログインしていなくても使用できる
   skip_before_action :login_required, only: %i[new create]
-  # adminユーザでない場合はユーザ一覧に遷移できないようにする。
-  before_action :require_admin, only: %i[index]
+  # 管理者ユーザのみユーザのみ利用可能
+  before_action :require_admin, only: %i[index destroy]
+  # 別ユーザが編集しない
   before_action :set_user, only: %i[show edit]
 
   def index
